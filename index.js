@@ -6,16 +6,16 @@ const PORT = 3000
 
 app.use(express.json())
 app.use(cors())
-const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'mysql',
-    database: 'daily'
-})
-db.connect((err)=>{
-    if(err) throw err;
-    console.log('connected')
-});
+// const db = mysql.createConnection({
+//     host: 'localhost',
+//     user: 'root',
+//     password: 'mysql',
+//     database: 'daily'
+// })
+// db.connect((err)=>{
+//     if(err) throw err;
+//     console.log('connected')
+// });
 app.post('/api/newApplication', (req, res)=>{
     const {name, topics, questions, video, discord, telegram, email, reward } = req.body;
     let post = {name, topics, questions, video, discord, telegram, email, reward: JSON.stringify(reward)};
