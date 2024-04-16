@@ -3,7 +3,6 @@ const mysql = require('mysql')
 const cors = require('cors')
 const app = express();
 const PORT = 3000   
-const baseUrl = process.env.BASE_URL;
 
 app.use(express.json())
 app.use(cors())
@@ -16,7 +15,6 @@ const db = mysql.createConnection({
 db.connect((err)=>{
     if(err) throw err;
     console.log('connected')
-    console.log(baseUrl)
 });
 app.post('/api/newApplication', (req, res)=>{
     const {name, topics, questions, video, discord, telegram, email, reward } = req.body;
